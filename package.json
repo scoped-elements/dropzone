@@ -10,6 +10,12 @@
     ".": "./dist/index.js",
     "./drop-zone.js": "./dist/drop-zone.js"
   },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npm run build && concurrently -k -r \"rollup -c -w\" \"wds\"",
     "build": "rimraf dist && rollup -c",
