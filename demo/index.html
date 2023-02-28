@@ -13,13 +13,17 @@
     />
   </head>
   <body>
-    <drop-zone url="https://haha.com"></drop-zone>
+    <drop-zone id="dz" url="https://haha.com"></drop-zone>
 
     <script type="module">
       import { html, render } from 'lit';
       import { DropzoneElement } from '../dist';
 
       customElements.define('drop-zone', DropzoneElement);
+
+      setTimeout(() => {
+        document.getElementById('dz').clear();
+      }, 10000);
     </script>
   </body>
 </html>

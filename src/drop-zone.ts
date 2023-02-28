@@ -25,10 +25,17 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
 
   @query('.dropzone') _dropzone!: HTMLElement;
 
+  dropzone!: Dropzone;
+
   @property({ type: Boolean }) _showIcon = true;
 
   firstUpdated() {
     this.setupDropzone();
+  }
+
+  clear() {
+    this.dropzone.removeAllFiles();
+    this._showIcon = true;
   }
 
   buildDropzone(container: HTMLElement, options: DropzoneOptions): Dropzone {
@@ -84,10 +91,10 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
     if (this.acceptedFiles) {
       options.acceptedFiles = this.acceptedFiles;
     }
-    const dropzone = this.buildDropzone(this._dropzone, options);
+    this.dropzone = this.buildDropzone(this._dropzone, options);
 
-    dropzone.on('addedfile', () => (this._showIcon = false));
-    dropzone.on('complete', file => {
+    this.dropzone.on('addedfile', () => (this._showIcon = false));
+    this.dropzone.on('complete', file => {
       this.dispatchEvent(
         new CustomEvent('file-uploaded', {
           detail: {
