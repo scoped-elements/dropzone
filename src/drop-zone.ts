@@ -94,6 +94,11 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
     this.dropzone = this.buildDropzone(this._dropzone, options);
 
     this.dropzone.on('addedfile', () => (this._showIcon = false));
+    this.dropzone.on('removedfile', () => {
+      if (this.dropzone.files.length === 0) {
+        this._showIcon = true;
+      }
+    });
     this.dropzone.on('complete', file => {
       this.dispatchEvent(
         new CustomEvent('file-uploaded', {
