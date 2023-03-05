@@ -3,7 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, query } from 'lit/decorators.js';
 
-import { Icon } from '@scoped-elements/material-web';
+import { MdIcon } from '@scoped-elements/material-web';
 
 // @ts-ignore
 import basicStyles from 'dropzone/dist/min/basic.min.css';
@@ -121,8 +121,8 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
       >
         ${this._showIcon
           ? html`
-              <mwc-icon style="font-size: 100px; pointer-events: none;"
-                >backup</mwc-icon
+              <md-icon style="font-size: 100px; pointer-events: none;"
+                >backup</md-icon
               >
             `
           : html``}
@@ -132,7 +132,7 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
 
   static get scopedElements() {
     return {
-      'mwc-icon': Icon,
+      'md-icon': MdIcon,
     };
   }
 

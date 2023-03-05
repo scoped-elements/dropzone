@@ -3,7 +3,7 @@
   "description": "Dropzone.js packaged as custom elements using @open-wc/scoped-elements",
   "license": "MIT",
   "author": "guillem.cordoba@gmail.com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "exports": {
@@ -24,8 +24,9 @@
     "storybook:build": "tsc && build-storybook"
   },
   "dependencies": {
-    "@open-wc/scoped-elements": "^2.0.0-next.6",
-    "@scoped-elements/material-web": "^0.0.8",
+    "@open-wc/scoped-elements": "^2.1.0",
+    "@scoped-elements/material-web": "^0.1.7",
+    "@types/dropzone": "^5.7.4",
     "dropzone": "^5.9.3",
     "lit": "^2.0.0"
   },
@@ -34,7 +35,6 @@
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-typescript": "^8.2.5",
-    "@types/dropzone": "^5.7.4",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "@web/dev-server": "^0.1.21",

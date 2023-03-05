@@ -11,7 +11,8 @@ export default {
   output: [{ dir: 'dist', format: 'es', sourcemap: true }],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash-es')
   external: [
-    ...Object.keys(pkg.dependencies).filter(key => !key.includes('dropzone')), /lit/
+    ...Object.keys(pkg.dependencies).filter(key => !key.includes('dropzone')),
+    /lit/,
   ],
   watch: {
     clearScreen: false,
