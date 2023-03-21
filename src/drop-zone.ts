@@ -1,9 +1,10 @@
-import { ScopedElementsMixin } from '@open-wc/scoped-elements';
 import { css, html, LitElement } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property, query } from 'lit/decorators.js';
+import { mdiFileUpload } from '@mdi/js';
+import { wrapPathInSvg } from '@holochain-open-dev/elements';
 
-import { MdIcon } from '@scoped-elements/material-web';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 // @ts-ignore
 import basicStyles from 'dropzone/dist/min/basic.min.css';
@@ -12,7 +13,7 @@ import dropzoneStyles from 'dropzone/dist/min/dropzone.min.css';
 import { DropzoneOptions } from 'dropzone';
 import Dropzone from 'dropzone';
 
-export class DropzoneElement extends ScopedElementsMixin(LitElement) {
+export class DropzoneElement extends LitElement {
   /** Public attributes */
 
   @property() url!: string;
@@ -126,19 +127,14 @@ export class DropzoneElement extends ScopedElementsMixin(LitElement) {
       >
         ${this._showIcon
           ? html`
-              <md-icon style="font-size: 100px; pointer-events: none;"
-                >backup</md-icon
-              >
+              <sl-icon
+                style="font-size: 100px; pointer-events: none;"
+                .src=${wrapPathInSvg(mdiFileUpload)}
+              ></sl-icon>
             `
           : html``}
       </div>
     `;
-  }
-
-  static get scopedElements() {
-    return {
-      'md-icon': MdIcon,
-    };
   }
 
   static get styles() {
