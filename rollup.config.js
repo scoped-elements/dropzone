@@ -13,6 +13,7 @@ export default {
   external: [
     ...Object.keys(pkg.dependencies).filter(key => !key.includes('dropzone')),
     /lit/,
+    /@shoelace-style/,
   ],
   watch: {
     clearScreen: false,
