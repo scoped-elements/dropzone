@@ -3,7 +3,7 @@
   "description": "Dropzone.js packaged as custom elements using @open-wc/scoped-elements",
   "license": "MIT",
   "author": "guillem.cordoba@gmail.com",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
@@ -25,7 +25,7 @@
     "storybook:build": "tsc && build-storybook"
   },
   "dependencies": {
-    "@holochain-open-dev/elements": "^0.4.0",
+    "@holochain-open-dev/elements": "^0.5.0",
     "@mdi/js": "^7.2.96",
     "@shoelace-style/shoelace": "^2.3.0",
     "@types/dropzone": "^5.7.4",
