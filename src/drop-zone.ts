@@ -35,7 +35,7 @@ export class DropzoneElement extends LitElement {
   }
 
   clear() {
-    this.dropzone.removeAllFiles();
+    this.dropzone.removeAllFiles(true);
     this._showIcon = true;
   }
 
@@ -128,7 +128,8 @@ export class DropzoneElement extends LitElement {
         ${this._showIcon
           ? html`
               <sl-icon
-                style="font-size: 100px; pointer-events: none;"
+                part="icon"
+                style="pointer-events: none;"
                 .src=${wrapPathInSvg(mdiFileUpload)}
               ></sl-icon>
             `
@@ -171,12 +172,18 @@ export class DropzoneElement extends LitElement {
 
         .dropzone .dz-message .dz-button {
           font-weight: 500;
-          font-size: initial;
+          font-size: var(--placeholder-font-size, initial);
           text-transform: uppercase;
+        }
+
+        sl-icon {
+          font-size: var(--icon-font-size, 100px);
         }
 
         .dropzone .dz-message {
           margin-top: 1em;
+          margin: var(--message-margin, 2em 0px);
+          margin-top: var(--message-margin-top, 1em);
         }
 
         .dropzone .dz-remove {
