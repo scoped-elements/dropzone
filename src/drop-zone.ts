@@ -195,8 +195,8 @@ export class DropzoneElement extends LitElement {
           margin-top: var(--message-margin-top, 1em);
         }
 
-        .dropzone .dz-remove {
-          margin-top: 16px;
+        .dropzone .dz-details {
+          padding: var(--details-padding, 1em) !important;
         }
 
         .dropzone .dz-image {

@@ -3,7 +3,7 @@
   "description": "Dropzone.js packaged as custom elements using @open-wc/scoped-elements",
   "license": "MIT",
   "author": "guillem.cordoba@gmail.com",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
