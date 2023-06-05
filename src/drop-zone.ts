@@ -95,10 +95,19 @@ export class DropzoneElement extends LitElement {
     this.dropzone = this.buildDropzone(this._dropzone, options);
 
     this.dropzone.on('addedfile', () => (this._showIcon = false));
-    this.dropzone.on('removedfile', () => {
+    this.dropzone.on('removedfile', e => {
       if (this.dropzone.files.length === 0) {
         this._showIcon = true;
       }
+      this.dispatchEvent(
+        new CustomEvent('file-removed', {
+          detail: {
+            file: e,
+          },
+          bubbles: true,
+          composed: true,
+        })
+      );
     });
     this.dropzone.on('complete', file => {
       this.dispatchEvent(
@@ -188,6 +197,11 @@ export class DropzoneElement extends LitElement {
 
         .dropzone .dz-remove {
           margin-top: 16px;
+        }
+
+        .dropzone .dz-image {
+          height: var(--preview-height, 120px) !important;
+          width: var(--preview-width, 120px) !important;
         }
       `,
     ];
